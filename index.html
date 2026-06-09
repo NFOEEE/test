@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Распознавание цифр</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="logo">✏️ DigitDraw</div>
+      <p class="subtitle">Нарисуйте цифру от 0 до 9 — нейросеть угадает её</p>
+    </header>
+
+    <main class="main">
+      <section class="canvas-section">
+        <div class="canvas-wrapper">
+          <canvas id="draw-canvas" width="300" height="300"></canvas>
+          <div class="canvas-hint">Рисуйте здесь</div>
+        </div>
+        <div class="controls">
+          <button id="btn-clear" class="btn btn-secondary" type="button">Очистить</button>
+          <button id="btn-predict" class="btn btn-primary" type="button">Распознать</button>
+        </div>
+      </section>
+
+      <section class="result-section">
+        <div class="result-card" id="result-card">
+          <div class="result-label">Результат</div>
+          <div class="result-digit" id="result-digit">—</div>
+          <div class="result-confidence" id="result-confidence">Нарисуйте цифру и нажмите «Распознать»</div>
+        </div>
+
+        <div class="preview-card">
+          <div class="preview-label">Как видит модель (28×28)</div>
+          <canvas id="preview-canvas" width="84" height="84"></canvas>
+        </div>
+
+        <div class="probabilities" id="probabilities"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      Модель обучена на датасете MNIST
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
